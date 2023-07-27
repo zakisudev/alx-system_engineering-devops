@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # Print the ip address and request status for a file
-awk -F ' ' '{ print $1, $9 }' apache-access.log
+file="apache-access.log"
+awk -F' ' '{ print $1, $9 }' $file
