@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Print sorted values of number of occurrences in a file with IP and HTTP request
+file="apache-access.log"
+awk ' {print $1 " " $9} ' $file | sort | uniq -c | sort -nr
