@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# List contenct of a file without prefix
+for files in *; do
+	name=$(echo "$files" | cut -d '-' -f 2-)
+	echo "$name"
+done	
