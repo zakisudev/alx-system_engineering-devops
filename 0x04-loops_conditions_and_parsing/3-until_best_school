@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Print a string using until command
+str="Best School"
+i=1
+until [ $i -gt 10 ]; do
+	echo "$str"
+	((i++))
+done
