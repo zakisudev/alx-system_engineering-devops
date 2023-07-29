@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # terminate 4-to-infinity-and-beyond process
-pp=$(pgrep "4-to-infinity-and-beyond")
-kill -2 "$pp"
+pp=$(pgrep '4-to_infinity_and_beyond')
+kill -9 "$pp"

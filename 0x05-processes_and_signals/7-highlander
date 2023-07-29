@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Print "To infinity and beyond" indefinetly
+while (true); do
+	if [ "$1" = "15" ]; then
+		echo "I am invincible!!!"
+	fi
+	echo "To infinity and beyond"
+	sleep 2
+done
