@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Print "To infinity and beyond" indefinetly
+while (true); do
+	echo "To infinity and beyond"
+done
