@@ -3,3 +3,4 @@
 # shellcheck disable=SC2009
 pgrep -f bash | pstree -U -p
 pgrep -f bash | ps -e -o pid,user,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,cmd
+pgrep -f bash | ps -t '?' -o pid,user,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,cmd

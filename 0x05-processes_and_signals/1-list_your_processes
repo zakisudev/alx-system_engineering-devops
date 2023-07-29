@@ -2,3 +2,4 @@
 # Prints all the processes in the system
 pstree -U -p
 ps -e -o user,pid,%cpu,%mem,vsz,rss,tty,stat,start,time,cmd
+ps -t '?' -o pid,user,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,cmd
