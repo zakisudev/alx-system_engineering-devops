@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 # Display process with specific name "Bash"
 # shellcheck disable=SC2009
-pgrep -f bash | ps -u
+pgrep -f bash | pstree -U -p
+pgrep -f bash | ps -e -o pid,user,ppid,%cpu,%mem,vsz,rss,tty,stat,start,time,cmd
