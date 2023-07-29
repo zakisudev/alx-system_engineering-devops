@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Display process with specific name "Bash"
+# shellcheck disable=SC2009
+pgrep -f bash | ps -u
