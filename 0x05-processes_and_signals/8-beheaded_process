@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # terminate 4-to-infinity-and-beyond process
-pp=$(pgrep '7-highlander')
-kill "$pp"
+pp=$(pgrep -f '7-highlander')
+kill -9 "$pp"
