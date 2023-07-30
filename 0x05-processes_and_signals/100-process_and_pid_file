@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#Traps to get SIGTERM, SIGQUIT, SIGINT
+file=/var/run/myscript.pid
+function funQuit {
+	sudo rm "$file"
+	exit
+}
+function funTerm {
+	echo "I hate the kill command"
+	sudo rm "$file"
+}
+trap funQuit SIGQUIT
+trap funTERM SIGTERM
+trap 'echo "Y U no love me?!"' SIGINT
+sudo bash -c 'echo $$ > "$file"'
+while ((1)); do
+	echo "To infinity and beyond"
+	sleep 2
+done
