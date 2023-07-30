@@ -17,7 +17,7 @@ funInt()
 	echo "Y U no love me?!"
 }
 
-trap "funTERM" SIGTERM
+trap "funTerm" SIGTERM
 trap "funQuit" SIGQUIT
 trap "funInt" SIGINT
 
