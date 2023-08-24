@@ -45,7 +45,7 @@ Directories
 0x08-networking_basics_2
 
     Description: Listen to port 98 on localhost.
-    Date: [Date when the file was last modified]
+    Date: August 5, 2023
 
 Usage
 
