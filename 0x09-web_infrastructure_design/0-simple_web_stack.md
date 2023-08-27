@@ -27,6 +27,7 @@ This is a single server of one server web infrastructure design that host a webs
 	The server is using HyperText Transfer Protocol (HTTP) through the internet network.
 
 **Issues with the single server web infrastructure**
+
 	The single server web infrastructure has many single point of failure(SPOF). If we look at the databse, if the database is down or in maintenance, the whole webserver fails.
 	The webserver is not accessable when there is a maintenance. Since the server is only one, the server will be down when maintenance is in progress.
 	This webserver can not be scaled since it has only one server. There is also no load balancing available.
