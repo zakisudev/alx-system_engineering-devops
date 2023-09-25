@@ -11,7 +11,7 @@ printf %s "server {
      index	 index.html index.htm;
 
      location /redirect_me {
-        return 301 https://www.zakisu.tech;
+        return 301 https://www.zakisu.vercel.app;
      }
 }
 " > /etc/nginx/sites-available/default
