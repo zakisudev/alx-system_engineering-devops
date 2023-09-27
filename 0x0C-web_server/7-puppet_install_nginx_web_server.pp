@@ -1,66 +1,71 @@
-# Add nginx stable repo
+# add stable version of nginx
 exec { 'add nginx stable repo':
   command => 'sudo add-apt-repository ppa:nginx/stable',
-  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin,
-}
-
-# Update and Upgrade software package list
-exec { 'update and upgrade packages':
-  command => 'apt-get update && apt-get upgrade',
   path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 
-# Install nginx
+# update software packages list
+exec { 'update packages':
+  command => 'apt-get update',
+  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+}
+
+# install nginx
 package { 'nginx':
   ensure     => 'installed',
 }
 
-# Allow HTTP Requests to nginx
+# allow HTTP
 exec { 'allow HTTP':
-  command => "ufw allow 'Nginx HTTP'".
-  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin,
-  onlyif  => '! dpkg -l nginx | egrep \ 'îi.*nginx' > /dev/null 2>&1,
+  command => "ufw allow 'Nginx HTTP'",
+  path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
+  onlyif  => '! dpkg -l nginx | egrep \'îi.*nginx\' > /dev/null 2>&1',
 }
 
-# Update directory permissions
-exec { 'chmod 222 folder':
-  command => 'chmod -R 755 /var/www.
+# change folder rights
+exec { 'chmod www folder':
+  command => 'chmod -R 755 /var/www',
   path    => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
 }
 
-# Create index file
-file { '/var/www/html/pagenotfound.html':
-  content => 'Ceci n'est pas une page',
+# create index file
+file { '/var/www/html/index.html':
+  content => "Hello World!\n",
 }
 
-# Add 301 redirection and 404 error page
+# create error-404 file file
+file { '/var/www/html/custom_404.html':
+  content => "Ceci n'est pas une page\n",
+}
+
+# add redirection and error page
 file { 'Nginx default config file':
   ensure  => file,
   path    => '/etc/nginx/sites-enabled/default',
-  content => 
-  "server {
-       listen 	 80 default_server;
-       listen    [::]:80 default_server;
-       root      /var/www/html;
-       location /redirect_me {
-         return 301 https://zakisu.vercel.app;
-       }
-       error_page 404 /pagenotfound.html;
-       location /pagenotefound {
-         root /var/www/html;
-         internal;
-       }
-  }
-  ",
+  content =>
+"server {
+     listen      80 default_server;
+     listen      [::]:80 default_server;
+     root        /var/www/html;
+     index       index.html index.htm;
+     location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+    error_page 404 /custom_404.html;
+    location /custom_404 {
+      root /var/www/html;
+      internal;
+    }
 }
-
-# Restart nginx server after configuration
+",
+}
+# restart nginx
 exec { 'restart service':
-  command => 'systemctl nginx restart'
+  command => 'service nginx restart',
   path    => '/usr/bin:/usr/sbin:/bin',
 }
 
-# Start nginx service
+# start service nginx
 service { 'nginx':
   ensure  => running,
   require => Package['nginx'],
