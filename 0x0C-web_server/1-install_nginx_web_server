@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Automating script running
 
-sudo apt update
-sudo apt install nginx -y
-sudo service nginx start
-echo "Hello World!" | sudo tee /var/www/html/index.html
+apt-get update
+apt-get install nginx -y
+service nginx start
+echo "Hello World!" > /var/www/html/index.html
 sudo sed -i 's/default_server//g' /etc/nginx/sites-available/default
-sudo service nginx reload
+service nginx reload
