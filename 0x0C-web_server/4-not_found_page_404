@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
-# Configures new server with text default display, /redirect_me page and 
+# Configures new server with text default display, /redirect_me page and
+
 #+    custom 404 page containing "Ceci n'est pas une page".
 
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install nginx -y
 
+sudo chown -R $USER:$USER /etc/nginx/
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
 echo "Hello World!" > /etc/nginx/html/index.html
 
 touch /var/www/html/page_404.html
