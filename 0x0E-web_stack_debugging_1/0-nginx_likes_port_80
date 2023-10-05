@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 # Webserver debugging #1 , change port listening
 sudo apt install nginx -y
+sudo sed -i "/s/8080/80/g" /etc/nginx/sites-enabled/default
+sudo service nginx restart
