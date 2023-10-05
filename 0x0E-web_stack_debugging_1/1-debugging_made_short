@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Setting up server
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default
+pkill -15 nginx
