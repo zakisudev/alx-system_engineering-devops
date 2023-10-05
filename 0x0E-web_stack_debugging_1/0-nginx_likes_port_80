@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # Webserver debugging #1 , change port listening
-sudo apt install nginx
+sudo apt install nginx -y
