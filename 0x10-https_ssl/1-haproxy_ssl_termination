@@ -6,7 +6,7 @@ defaults
         option forwardfor
         option http-server-close
 
-frontend  zakisu_frontend
+frontend  zakisu_http
         bind *:80
         reqadd X-Forwarded-Proto:\ http
         mode http
@@ -23,8 +23,8 @@ backend  zakisu_backend
         balance roundrobin
         redirect scheme https if !{ ssl_fc }
         mode http
-        server 257577-web-01 54.174.136.120:80 check
-        server 257577-web-02 34.207.188.128:80 check
+        server 257577-web-01 107.23.211.94:80 check
+        server 257577-web-02 35.175.105.178:80 check
 
 backend  letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
