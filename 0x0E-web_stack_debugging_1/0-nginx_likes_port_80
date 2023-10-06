@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# Webserver debugging #1 , change port listening
-sudo apt update
-sudo apt install nginx -y
-sudo sed -i "/s/8080/80/g" /etc/nginx/sites-enabled/default ; sudo sed -i 's/ ipv6only=on//g' /etc/nginx/sites-enabled/default 
-sudo sed -i 's/ ipv6only=on//g' /etc/nginx/sites-available/default 
-sudo service nginx restart
+# Configuring nginx server
+rm /etc/nginx/sites-enabled/default
+lx -s /etc/sites-available/default
+service nginx restart
