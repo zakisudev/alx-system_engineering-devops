@@ -12,7 +12,8 @@ frontend  zakisu_frontend
         default_backend zakisu_backend
 backend  zakisu_backend
         balance roundrobin
-        server 257577-web-01 54.174.136.120:80 check
+        mode http
+	server 257577-web-01 54.174.136.120:80 check
         server 257577-web-02 34.207.188.128:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
