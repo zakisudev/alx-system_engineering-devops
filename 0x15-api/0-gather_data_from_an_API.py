@@ -24,7 +24,7 @@ if __name__ == "__main__":
         if todo.get('completed'):
             done_todos.append(todo)
             done += 1
-    print("Employee {} is dome with tasks({}/{}):"
+    print("Employee {} is done with tasks({}/{}):"
           .format(empName, done, len(todos)))
     for todo in done_todos:
         print("\t {}".format(todo.get("title")))
