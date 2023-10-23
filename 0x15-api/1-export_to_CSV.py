@@ -21,5 +21,5 @@ if __name__ == "__main__":
     with open("{}.csv".format(empId), 'w') as f:
         for todo in todos:
             f.write('"{}","{}","{}","{}"\n'
-                      .format(empId, empUName, todo.get('completed'),
-                              todo.get('title')))
+                    .format(empId, empUName, todo.get('completed'),
+                            todo.get('title')))
