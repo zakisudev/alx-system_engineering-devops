@@ -2,8 +2,8 @@
 """
 Fetching todo lists for an employee from a REST API
 """
-import requests
 import json
+import requests
 import sys
 
 
